@@ -98,8 +98,8 @@ mytoolsmenu = {
 }
 
 mysysmenu = {
-    { "Shutdown", "sudo /sbin/poweroff" },
-    { "Reboot", "sudo /sbin/reboot" },
+    { "Shutdown", "gksudo /sbin/poweroff" },
+    { "Reboot", "gksudo /sbin/reboot" },
 }
 
 mymainmenu = awful.menu({ items = { { "Terminal", terminal },
