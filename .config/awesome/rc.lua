@@ -10,9 +10,6 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
--- Load battery notification icon
-require("battery")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -199,7 +196,6 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
-        battery(),
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -409,4 +405,5 @@ end
 
 run_once("nm-applet")
 run_once("volumeicon")
+run_once("cbatticon")
 -- }}}
