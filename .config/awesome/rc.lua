@@ -92,6 +92,12 @@ mytoolsmenu = {
     { "File Manager", "pcmanfm" },
     { "Image Viewer", "gpicview" },
     { "Rooot Terminal", "gksu " .. terminal },
+    { "lxrandr", "/usr/bin/lxrandr" },
+}
+
+mydevmenu = {
+    { "PyCharm", "/opt/pycharm/bin/pycharm.sh" },
+    { "DrRacket", "/usr/bin/drracket" },
 }
 
 mysysmenu = {
@@ -103,6 +109,7 @@ mymainmenu = awful.menu({ items = { { "Terminal", terminal },
                                     { "Proxying", terminal .. " -e " .. proxy_cmd },
                                     { "Browser", "firefox -P --no-remote" },
                                     { "Tools", mytoolsmenu },
+                                    { "Dev", mydevmenu },
                                     { "awesome", myawesomemenu },
                                     { "System", mysysmenu },
                                     { "Debian", debian.menu.Debian_menu.Debian },
