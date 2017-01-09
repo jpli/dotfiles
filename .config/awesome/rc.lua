@@ -43,7 +43,7 @@ beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
-proxy_cmd = "ssh -D 8888 -p 29165 jpli@45.62.105.188"
+proxy_cmd = "/bin/bash " .. os.getenv("HOME") .. "/.config/awesome/open_proxy.sh"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
