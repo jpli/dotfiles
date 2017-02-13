@@ -97,6 +97,7 @@ mytoolsmenu = {
 
 mydevmenu = {
     { "PyCharm", "/opt/pycharm/bin/pycharm.sh" },
+    { "Atom.io", "/opt/atom.io/atom" },
     { "DrRacket", "/usr/bin/drracket" },
     { "Retext", "/usr/bin/retext" },
 }
