@@ -98,6 +98,7 @@ mytoolsmenu = {
 mydevmenu = {
     { "PyCharm", "/opt/pycharm/bin/pycharm.sh" },
     { "DrRacket", "/usr/bin/drracket" },
+    { "Geany", "/usr/bin/geany" },
 }
 
 mysysmenu = {
