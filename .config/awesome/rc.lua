@@ -43,7 +43,8 @@ beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
-proxy_cmd = "/bin/bash " .. os.getenv("HOME") .. "/.config/awesome/open_proxy.sh"
+proxy_script = os.getenv("HOME") .. "/.config/awesome/proxy.sh"
+proxy_shell = "/bin/bash " .. proxy_script .. " shell"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -93,6 +94,7 @@ mytoolsmenu = {
     { "Image Viewer", "gpicview" },
     { "Rooot Terminal", "gksu " .. terminal },
     { "lxrandr", "/usr/bin/lxrandr" },
+    { "Proxy admin", terminal .. " -e " .. proxy_shell },
 }
 
 mydevmenu = {
@@ -107,7 +109,6 @@ mysysmenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "Terminal", terminal },
-                                    { "Proxying", proxy_cmd },
                                     { "Browser", "firefox -P --no-remote" },
                                     { "Tools", mytoolsmenu },
                                     { "Dev", mydevmenu },
@@ -402,16 +403,26 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 -- {{{ Startup commands
-function run_once(cmd)
-  findme = cmd
-  firstspace = cmd:find(" ")
-  if firstspace then
-    findme = cmd:sub(0, firstspace-1)
+function run_once(cmd, prog)
+  if prog == nil then
+    findme = arg0(cmd)
+  else
+    findme = prog
   end
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+end
+
+function arg0(cmd)
+  firstspace = cmd:find(" ")
+  if firstspace then
+    return cmd:sub(0, firstspace-1)
+  else
+    return cmd
+  end
 end
 
 run_once("nm-applet")
 run_once("volumeicon")
 run_once("cbatticon")
+run_once("bash " .. proxy_script .. " start", "autossh")
 -- }}}
