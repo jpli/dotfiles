@@ -107,7 +107,7 @@ mysysmenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "Terminal", terminal },
-                                    { "Proxying", terminal .. " -e " .. proxy_cmd },
+                                    { "Proxying", proxy_cmd },
                                     { "Browser", "firefox -P --no-remote" },
                                     { "Tools", mytoolsmenu },
                                     { "Dev", mydevmenu },
