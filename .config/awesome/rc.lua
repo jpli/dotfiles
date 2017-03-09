@@ -92,7 +92,7 @@ myawesomemenu = {
 mytoolsmenu = {
     { "File Manager", "pcmanfm" },
     { "Image Viewer", "gpicview" },
-    { "Rooot Terminal", "gksu " .. terminal },
+    { "Root Terminal", "gksu " .. terminal },
     { "lxrandr", "/usr/bin/lxrandr" },
     { "Proxy admin", terminal .. " -e " .. proxy_shell },
 }
