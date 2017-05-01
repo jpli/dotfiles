@@ -101,6 +101,7 @@ mydevmenu = {
     { "PyCharm", "/opt/pycharm/bin/pycharm.sh" },
     { "DrRacket", "/usr/bin/drracket" },
     { "Geany", "/usr/bin/geany" },
+    { "VSCode", "/opt/VSCode-linux-x64/code" },
 }
 
 mysysmenu = {
