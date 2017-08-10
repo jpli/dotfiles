@@ -1,0 +1,3 @@
+for script in `run-parts --list $HOME/.xsession.d`; do
+    . $script
+done
