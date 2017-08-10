@@ -121,6 +121,11 @@ mydevmenu = {
     { "VSCode", "/opt/VSCode-linux-x64/code" },
 }
 
+mysysmenu = {
+    { "Shutdown", "gksudo /sbin/poweroff" },
+    { "Reboot", "gksudo /sbin/reboot" },
+}
+
 mymainmenu = awful.menu({ items = { { "Terminal", terminal },
                                     { "Browser", "firefox -P --no-remote" },
                                     { "Tools", mytoolsmenu },
