@@ -1,11 +1,14 @@
 #!/bin/bash
-intern=LVDS
-extern=HDMI-0
+intern=eDP-1
+intern_mode=1360x768
+extern=HDMI-1
+extern_position=--left-of
 
-if xrandr | grep -q "$extern disconnected"; then
-    xrandr --output "$extern" --off --output "$intern" --auto
+xrandr --output "$intern" --mode $intern_mode
+if xrandr | grep -q "$extern connected"; then
+    xrandr --output "$extern" --auto "$extern_position" $intern
 else
-    xrandr --output "$intern" --off --output "$extern" --auto
+    xrandr --output "$extern" --off
 fi
 
 unset intern extern
