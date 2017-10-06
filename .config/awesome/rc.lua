@@ -119,6 +119,7 @@ mydevmenu = {
     { "DrRacket", "/usr/bin/drracket" },
     { "Geany", "/usr/bin/geany" },
     { "VSCode", "/opt/VSCode-linux-x64/code" },
+    { "Android Studio", "/opt/android-studio/bin/studio.sh" },
 }
 
 mysysmenu = {
