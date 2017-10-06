@@ -65,20 +65,13 @@ add_path() {
     fi
 }
 
-for env_file in "$BASH_EXTRA_CONF"/*.env; do
-    if [ -s "$env_file" ]; then
-        source "$env_file"
+for cfg_file in "$BASH_EXTRA_CONF"/*.env "$BASH_EXTRA_CONF"/*.rc "$BASH_EXTRA_CONF"/*.alias ; do
+    if [ -s "$cfg_file" ]; then
+        source "$cfg_file"
     fi
-    unset env_file
 done
+unset cfg_file
 
 unset path_added _add_path
-
-for alias_file in "$BASH_EXTRA_CONF"/*.alias; do
-    if [ -s "$alias_file" ]; then
-        source "$alias_file"
-    fi
-    unset alias_file
-done
 
 unset BASH_EXTRA_CONF
