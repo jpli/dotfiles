@@ -1,0 +1,42 @@
+VENV_ROOT="$HOME/.virtualenvs"
+
+
+# Activate
+_va() {
+    local venv="$1"
+    local activate="$VENV_ROOT/$venv/bin/activate"
+    if [ -e "$activate" ]; then
+        source "$activate"
+    else
+        echo "Virtual environment \"$venv\" does not exist" >&2
+    fi
+}
+
+
+# Create
+_vc() {
+    local pyver="${2:-3}"
+    local venv_path="$VENV_ROOT/$1"
+    if [ "$pyver" = 2 ]; then
+        python2 -m virtualenv "$venv_path"
+    else
+        python3 -m venv "$venv_path"
+    fi
+}
+
+
+# Remove
+_vr() {
+    local venv_path="$VENV_ROOT/$1"
+    local confirm
+    read -p "Delete $venv_path? [yes|no] " confirm
+    if [ "$confirm" = "yes" ]; then
+        rm -rf "$venv_path"
+    fi
+}
+
+
+# List
+_vl() {
+    (cd "$VENV_ROOT" && ls -1)
+}
